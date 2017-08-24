@@ -43,32 +43,36 @@ def checkMacNum(inputNum, maxNum):
 
 
 ########### 主流程
-print ("猜数字游戏开始：")
-isContinue = True;
-while isContinue:
-    max_num = guessStart()
-    random_num = random.randint(0, int(max_num))
-    #	checkMacNum();
-    isRight = False
-    while not isRight:
+def game():
+    print ("猜数字游戏开始：")
+    isContinue = True;
+    while isContinue:
+        max_num = guessStart()
+        random_num = random.randint(0, int(max_num))
+        #	checkMacNum();
+        isRight = False
+        while not isRight:
+            try:
+                guess_num = input("猜一个整数: ")
+                isRight = guessOnce(guess_num, random_num)
+            except Exception as ex:
+                print ("输入错误")
+        cmdStr = "";
         try:
-            guess_num = input("猜一个整数: ")
-            isRight = guessOnce(guess_num, random_num)
+            cmdStr = input("点击任意键继续\n")
         except Exception as ex:
-            print ("输入错误")
-    cmdStr = "";
-    try:
-        cmdStr = input("点击任意键继续\n")
-    except Exception as ex:
-        cmdStr = str(cmdStr)
-        print ("")
-    # 退出逻辑
-    if cmdStr == 'end':
-        isContinue = False
-        print ("exit success")
-        print ("_" * 100)
-        print ("_" * 100)
-        print ("_" * 100)
-    else:
-        print("\n")
-        print("———— 游戏重新开始 ————")
+            cmdStr = str(cmdStr)
+            print ("")
+        # 退出逻辑
+        if cmdStr == 'end':
+            isContinue = False
+            print ("exit success")
+            print ("_" * 60)
+            print ("_" * 60)
+            print ("_" * 60)
+        else:
+            print("\n")
+            print("———— 游戏重新开始 ————")
+
+##### 执行部分
+game()
