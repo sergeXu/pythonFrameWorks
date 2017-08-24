@@ -13,7 +13,7 @@ def guessOnce(num, result):
         print ("数字是 " + str(num))
         # print ("#"*3+"_"*30+"#"*3)
         return is_right
-    elif (int(num) < int(result)):
+    elif int(num) < int(result):
         print ("数值太小了")
         return is_right
     else:
@@ -36,7 +36,7 @@ def guessStart():
 def checkMacNum(inputNum, maxNum):
     print ("Guess a number in 0 to " + str(max_num))
     input_num = input("")
-    if (input_num > 0 and input_num < maxNum):
+    if 0 < input_num < maxNum:
         return input_num
     else:
         print ("the number is not fit")
@@ -50,19 +50,24 @@ while isContinue:
     random_num = random.randint(0, int(max_num))
     #	checkMacNum();
     isRight = False
-    while (not isRight):
-        guess_num = input("猜一个整数: ")
-        isRight = guessOnce(guess_num, random_num)
+    while not isRight:
+        try:
+            guess_num = input("猜一个整数: ")
+            isRight = guessOnce(guess_num, random_num)
+        except Exception as ex:
+            print ("输入错误")
     cmdStr = "";
     try:
-        cmdStr = input("点击任意键继续")
+        cmdStr = input("点击任意键继续\n")
     except Exception as ex:
         cmdStr = str(cmdStr)
         print ("")
     # 退出逻辑
-    if (cmdStr == "end"):
+    if cmdStr == 'end':
         isContinue = False
         print ("exit success")
+        print ("_" * 100)
+        print ("_" * 100)
         print ("_" * 100)
     else:
         print("\n")
