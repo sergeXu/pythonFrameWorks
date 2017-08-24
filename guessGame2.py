@@ -22,7 +22,7 @@ def guessStart():
 	print "*"*70
 	isRight = False;
 	max_num = raw_input("输入最大值整数范围:\n")
-	while max_num<=0:
+	while (int(max_num)<=0):
 		print "数字不合法"
 		max_num = raw_input("输入最大值整数范围:\n")	
 	return max_num;
