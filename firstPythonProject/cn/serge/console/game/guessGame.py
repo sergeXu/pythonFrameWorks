@@ -31,6 +31,19 @@ def guessStart():
         max_num = input("输入最大值整数范围:\n")
     return max_num;
 
+def getNumber(from_num,to_num):
+    ## normal way
+    random_num = random.randint(int(from_num), int(to_num))
+
+    # #cheat
+    # if int(to_num)%3==0:
+    #     random_num = int(to_num)//2
+    # elif int(to_num)%2 == 0:
+    #     random_num = int(to_num)//3
+    # else:
+    #     random_num = random.randint(int(from_num), int(to_num))
+
+    return random_num
 
 # 暂时不用
 def checkMacNum(inputNum, maxNum):
@@ -45,10 +58,10 @@ def checkMacNum(inputNum, maxNum):
 ########### 主流程
 def game():
     print ("猜数字游戏开始：")
-    isContinue = True;
+    isContinue = True
     while isContinue:
         max_num = guessStart()
-        random_num = random.randint(0, int(max_num))
+        random_num = getNumber(0,max_num)
         #	checkMacNum();
         isRight = False
         while not isRight:
