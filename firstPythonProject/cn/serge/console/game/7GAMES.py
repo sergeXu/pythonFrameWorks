@@ -36,7 +36,8 @@ def game7_start():
     except Exception as ex:
         print ("输入错误")
         return False
-    num = 1
+    print("数字序列为：")
+    num = 0
     while num < num_max_int:
         num += 1;
         isRelated7 = relevent_to_7(num)
